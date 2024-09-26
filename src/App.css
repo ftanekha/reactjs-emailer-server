@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+div.main-container button.loginToggleButton {
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #00b3b3;
+  color: azure;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  transition: 0.5s;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div.main-container button.loginToggleButton:hover {
+  background-color: teal;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+div.main-container form {
+  width: 100%;
+  margin-top: 30vh;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+}
+div.main-container form input {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  width: 200px;
+  height: 40px;
+  display: block;
+  margin: 10px 0;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+}
+div.main-container ul#login-error-messages-container {
+  background-color: hsl(348, 100%, 61%);
+  width: 130px;
+  margin: 20px auto;
+  padding: 10px 30px;
+  list-style-type: none;
+  list-style-position: outside;
+}
+div.main-container ul#login-error-messages-container li {
+  color: azure;
+  margin-bottom: 10px;
+}
+div.main-container div.mailboxes-container {
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  flex-direction: row;
+  gap: 10%;
+}
+div.main-container div.mailboxes-container div.mailboxes {
+  width: 10%;
+}
+div.main-container div.mailboxes-container div.mailboxes ul {
+  list-style-type: none;
+  list-style-position: outside;
+  padding-left: 0;
+}
+div.main-container div.mailboxes-container div.mailboxes ul li {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: azure;
+  transition: 0.5s;
+  cursor: pointer;
+}
+div.main-container div.mailboxes-container div.mailboxes ul li:hover {
+  color: #57ffff;
+}
+div.main-container div.mailboxes-container div.mailboxes ul li#compose:hover {
+  background-color: azure !important;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails {
+  display: none;
+  list-style-type: none;
+  list-style-position: outside;
+  padding-left: 0;
+  margin-top: 100px;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails li {
+  color: azure;
+  font-weight: normal;
+  font-size: 0.9rem;
+  border-bottom: solid lightgray 1px;
+  margin-bottom: 20px;
+}
+div.main-container div.mailboxes-container button.logoutButton {
+  position: fixed;
+  top: 10px;
+  right: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */

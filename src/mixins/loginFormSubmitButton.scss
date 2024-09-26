@@ -1,0 +1,14 @@
+@mixin loginToggleButton{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    background-color: lighten(teal, 10%);
+    color: azure;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    transition: .5s;
+    &:hover{
+        background-color: teal;
+    }
+}

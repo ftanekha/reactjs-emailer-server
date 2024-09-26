@@ -1,0 +1,93 @@
+@import 
+    './mixins/variables.scss',
+    './mixins/loginFormSubmitButton.scss'
+;
+
+div.main-container{
+    button.loginToggleButton{
+        @include loginToggleButton;
+    }
+    form{
+        width: 100%;
+        margin-top: 30vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input{
+            box-sizing: border-box;
+            padding: 5px 10px;
+            width: 200px;
+            height: 40px;
+            display: block;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            transition: .5s;
+        }
+        button.loginButton{}
+    }
+    ul#login-error-messages-container{
+        background-color: $bulma-danger;
+        width: 130px;
+        margin: 20px auto;
+        padding: 10px 30px;
+        list-style-type: none;
+        list-style-position: outside;
+        li{
+            color: azure;
+            margin-bottom: 10px;
+        }
+    }
+    div.mailboxes-container{
+        width: 100%;
+        height: 100%;
+        margin: 5px;
+        flex-direction: row;
+        gap: 10%;
+        div.mailboxes{
+            width: 10%;
+            ul{
+                list-style-type: none;
+                list-style-position: outside;
+                padding-left: 0;
+                li{
+                    height: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 600;
+                    color: azure;
+                    transition: .5s;
+                    cursor: pointer;
+                    &:hover{
+                        color: $active_mailbox-link;
+                    };
+                    &#compose:hover{
+                        background-color: azure !important;
+                    }
+                }
+            }
+        }
+        div.emails-container{
+            ul.emails{
+                display: none;
+                list-style-type: none;
+                list-style-position: outside;
+                padding-left: 0;
+                margin-top: 100px;
+                li{
+                    color: azure;
+                    font-weight: normal;
+                    font-size: .9rem;
+                    border-bottom: solid lightgray 1px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        button.logoutButton{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+    }
+}
