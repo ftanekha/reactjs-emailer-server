@@ -83,31 +83,31 @@ div.main-container{
                     margin-bottom: 20px;
                     display: flex;
                     justify-content: space-between;
-                    gap: 10px;
+                    gap: 40px;
                     transition: .5s;
                     cursor: pointer;
                     &:hover{
                         color: darkgray;
                     }
-                    div.crud-options-container{
-                        width: 50px;
-                        margin-left: 40px;
-                        display: inline-flex;
-                        // justify-content: space-between;
-                        justify-content: flex-end;
-                        span.crud-option{
+                    // div.crud-options-container{
+                    //     width: 50px;
+                    //     margin-left: 40px;
+                    //     display: inline-flex;
+                    //     // justify-content: space-between;
+                    //     justify-content: flex-end;
+                        span.delete-icon, span.binned-delete-icon{
                             font-size: 1.5rem;
                             cursor: pointer;
                             // &.write::before{
                             //     content: '\01F589';
                             //     color: $bulma-success;
                             // }
-                            &.bin::before{
+                            &::before{
                                 content: '\01F5D1';
                                 color: $bulma-danger;
                             }
                         }
-                    }
+                    // }
                 }
             }
         }

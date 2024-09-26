@@ -89,24 +89,18 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li {
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 40px;
   transition: 0.5s;
   cursor: pointer;
 }
 div.main-container div.mailboxes-container div.emails-container ul.emails li:hover {
   color: darkgray;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container {
-  width: 50px;
-  margin-left: 40px;
-  display: inline-flex;
-  justify-content: flex-end;
-}
-div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container span.crud-option {
+div.main-container div.mailboxes-container div.emails-container ul.emails li span.delete-icon, div.main-container div.mailboxes-container div.emails-container ul.emails li span.binned-delete-icon {
   font-size: 1.5rem;
   cursor: pointer;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container span.crud-option.bin::before {
+div.main-container div.mailboxes-container div.emails-container ul.emails li span.delete-icon::before, div.main-container div.mailboxes-container div.emails-container ul.emails li span.binned-delete-icon::before {
   content: "🗑";
   color: hsl(348, 100%, 61%);
 }

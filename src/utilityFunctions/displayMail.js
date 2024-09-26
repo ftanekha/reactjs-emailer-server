@@ -12,15 +12,20 @@ export default function displayMail({target}){
     target.style.border = `solid 2px ${aquamarine}`
     //display emails
     const targetEmails = document.querySelector(`#emails-${target.id}`)
-    targetEmails.innerHTML = ''
 
     mailboxes.forEach(
         mailbox => {
-            if(mailbox !== targetEmails) mailbox.style.display = 'none'
+            if(mailbox !== targetEmails) {
+                mailbox.style.display = 'none'
+            }else{
+                mailbox.style.display = 'block'
+            }
         }
     )
-    //fetch random temp messages
+    //fetch new random emails
     if(target.id === 'inbox'){
+        targetEmails.innerHTML = ''
+
         fetch('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.json())
         .then(
@@ -35,32 +40,33 @@ export default function displayMail({target}){
                         li.title = 'click to read'
                         li.key = i
                         li.textContent = post.title
-                        //
-                        const crudOptionsContainer = document.createElement('div')
-                        crudOptionsContainer.className = 'crud-options-container'
-
-                        // const write = document.createElement('span')
-                        // write.textContent = 'write'
-                        // write.className = 'crud-option write'
-
-                        const bin = document.createElement('span')
-                        bin.title = 'delete'
-                        bin.className = 'crud-option bin'
-                        bin.addEventListener(
-                            'click', ({target})=> target.parentElement.parentElement.style.display = 'none' 
+                        //add delete icon
+                        const deleteIcon = document.createElement('span')
+                        deleteIcon.title = 'delete'
+                        deleteIcon.className = 'delete-icon'
+                        deleteIcon.addEventListener(
+                            'click', ({target})=> {
+                                target.className = 'binned-delete-icon'
+                                document.querySelector('#emails-bin').appendChild(target.parentElement)
+                            },
+                            {once: true}
                         )
-                        //
+                        li.appendChild(deleteIcon)
                         targetEmails.appendChild(li)
-                        //
-                        li.appendChild(crudOptionsContainer)
-                        // crudOptionsContainer.appendChild(write)
-                        crudOptionsContainer.appendChild(bin)
                     }
                 )
             },
             err => console.warn(err.message)
         )
+        targetEmails.style.display = 'block'
     }
-    //
-    targetEmails.style.display = 'block'
+
+    //binned emails
+    const binnedDeleteIcons = document.querySelectorAll('.binned-delete-icon')
+    binnedDeleteIcons.forEach(
+        binnedDeleteIcon => binnedDeleteIcon.addEventListener(
+            //delete permanently from DOM
+            'click', ({target})=> target.parentElement.remove()
+        )
+    )
 }
