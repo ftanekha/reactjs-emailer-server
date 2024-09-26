@@ -7,7 +7,9 @@ function Mailboxes({style, logout}){
         <div className='mailboxes-container' style={style}>
             <div className='mailboxes'>
                 <ul>
-                    <li id='compose' key='compose' className='' style={{backgroundColor: '#57ffff', color: 'black'}}>Compose</li>
+                    <li id='compose' key='compose' title='create a new email' style={{backgroundColor: '#57ffff', color: 'black'}}>
+                        Compose&nbsp;<span className='pencil'>&#128393;</span>
+                    </li>
                     <li id='inbox' key='inbox' className='mailbox-link' onClick={displayMail}>Inbox</li>
                     <li id='sent' key='sent' className='mailbox-link' onClick={displayMail}>Sent</li>
                     <li id='drafts' key='drafts' className='mailbox-link' onClick={displayMail}>Drafts</li>

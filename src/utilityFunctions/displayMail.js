@@ -42,7 +42,7 @@ export default function displayMail({target}){
                         li.textContent = post.title
                         //add delete icon
                         const deleteIcon = document.createElement('span')
-                        deleteIcon.title = 'delete'
+                        deleteIcon.title = 'delete email'
                         deleteIcon.className = 'delete-icon'
                         deleteIcon.addEventListener(
                             'click', ({target})=> {
@@ -66,7 +66,11 @@ export default function displayMail({target}){
     binnedDeleteIcons.forEach(
         binnedDeleteIcon => binnedDeleteIcon.addEventListener(
             //delete permanently from DOM
-            'click', ({target})=> target.parentElement.remove()
+            'click', ({target})=> {
+                if(window.confirm('Are you sure you want to delete this email permanently?')){
+                    target.parentElement.remove()
+                }
+            }
         )
     )
 }

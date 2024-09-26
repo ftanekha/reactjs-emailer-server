@@ -62,8 +62,13 @@ div.main-container{
                     &:hover{
                         color: $active_mailbox-link;
                     };
-                    &#compose:hover{
-                        background-color: azure !important;
+                    &#compose{
+                        &:hover{
+                            background-color: azure !important;
+                        }
+                        span.pencil{
+                            color: $bulma-black-ter;
+                        }
                     }
                 }
             }
@@ -79,7 +84,7 @@ div.main-container{
                     color: azure;
                     font-weight: normal;
                     font-size: .9rem;
-                    border-bottom: solid black 1px;
+                    border-bottom: solid $bulma-black-ter 1px;
                     margin-bottom: 20px;
                     display: flex;
                     justify-content: space-between;
@@ -89,25 +94,14 @@ div.main-container{
                     &:hover{
                         color: darkgray;
                     }
-                    // div.crud-options-container{
-                    //     width: 50px;
-                    //     margin-left: 40px;
-                    //     display: inline-flex;
-                    //     // justify-content: space-between;
-                    //     justify-content: flex-end;
-                        span.delete-icon, span.binned-delete-icon{
-                            font-size: 1.5rem;
-                            cursor: pointer;
-                            // &.write::before{
-                            //     content: '\01F589';
-                            //     color: $bulma-success;
-                            // }
-                            &::before{
-                                content: '\01F5D1';
-                                color: $bulma-danger;
-                            }
+                    span.delete-icon, span.binned-delete-icon{
+                        font-size: 1.5rem;
+                        cursor: pointer;
+                        &::before{
+                            content: '\01F5D1';
+                            color: $bulma-danger;
                         }
-                    // }
+                    }
                 }
             }
         }

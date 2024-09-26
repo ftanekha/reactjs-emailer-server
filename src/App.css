@@ -74,6 +74,9 @@ div.main-container div.mailboxes-container div.mailboxes ul li:hover {
 div.main-container div.mailboxes-container div.mailboxes ul li#compose:hover {
   background-color: azure !important;
 }
+div.main-container div.mailboxes-container div.mailboxes ul li#compose span.pencil {
+  color: hsl(0, 0%, 14%);
+}
 div.main-container div.mailboxes-container div.emails-container ul.emails {
   display: none;
   list-style-type: none;
@@ -85,7 +88,7 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li {
   color: azure;
   font-weight: normal;
   font-size: 0.9rem;
-  border-bottom: solid black 1px;
+  border-bottom: solid hsl(0, 0%, 14%) 1px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
