@@ -2,10 +2,7 @@ import React, {useState} from 'react'
 import LoginForm from './Components/LoginForm.js'
 import Mailboxes from './Components/Mailboxes.js'
 import LogInErrorMessages from './Components/LogInErrorMessages.js'
-import displayMail from './displayMail.js'
 import './App.css'
-
-displayMail()
 
 function App() {
   //authentication details

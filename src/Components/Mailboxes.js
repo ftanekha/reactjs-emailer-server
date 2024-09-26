@@ -1,5 +1,6 @@
 import React from 'react'
 import LogoutButton from './LogoutButton.js'
+import displayMail from '../utilityFunctions/displayMail.js'
 
 function Mailboxes({style, logout}){
     return(
@@ -7,10 +8,10 @@ function Mailboxes({style, logout}){
             <div className='mailboxes'>
                 <ul>
                     <li id='compose' key='compose' className='' style={{backgroundColor: '#57ffff', color: 'black'}}>Compose</li>
-                    <li id='inbox' key='inbox' className='mailbox-link'>Inbox</li>
-                    <li id='sent' key='sent' className='mailbox-link'>Sent</li>
-                    <li id='drafts' key='drafts' className='mailbox-link'>Drafts</li>
-                    <li id='bin' key='bin' className='mailbox-link'>Bin</li>
+                    <li id='inbox' key='inbox' className='mailbox-link' onClick={displayMail}>Inbox</li>
+                    <li id='sent' key='sent' className='mailbox-link' onClick={displayMail}>Sent</li>
+                    <li id='drafts' key='drafts' className='mailbox-link' onClick={displayMail}>Drafts</li>
+                    <li id='bin' key='bin' className='mailbox-link' onClick={displayMail}>Bin</li>
                 </ul>
             </div>
             <div className='emails-container'>

@@ -81,6 +81,11 @@ div.main-container{
                     font-size: .9rem;
                     border-bottom: solid lightgray 1px;
                     margin-bottom: 20px;
+                    transition: .5s;
+                    &:hover{
+                        color: darkgray;
+                        font-weight: 600;
+                    }
                 }
             }
         }
