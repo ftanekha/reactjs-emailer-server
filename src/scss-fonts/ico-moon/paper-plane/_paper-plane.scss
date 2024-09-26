@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('./scss-fonts/ico-moon/paper-plane/icomoon.eot?hjy7ao');
+    src:  url('./scss-fonts/ico-moon/paper-plane/icomoon.eot?hjy7ao#iefix') format('embedded-opentype'),
+      url('./scss-fonts/ico-moon/paper-plane/icomoon.ttf?hjy7ao') format('truetype'),
+      url('./scss-fonts/ico-moon/paper-plane/icomoon.woff?hjy7ao') format('woff'),
+      url('./scss-fonts/ico-moon/paper-plane/icomoon.svg?hjy7ao#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-paper-plane-o:before {
+    content: "\e900";
+  }  

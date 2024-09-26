@@ -1,8 +1,8 @@
 import LoginButton from './LoginButton.js'
 
-function LoginForm({handleFormSubmit, setUsername, setPassword, username, password, loginFormDisplay}){
+function LoginForm({handleLoginFormSubmit, setUsername, setPassword, username, password, loginFormDisplay}){
     return(
-        <form id='form' onSubmit={handleFormSubmit} style={{display: loginFormDisplay? 'flex': 'none'}}>
+        <form id='login-form' onSubmit={handleLoginFormSubmit} style={{display: loginFormDisplay? 'flex': 'none'}}>
             <input type='text' onChange={(e)=>{
                 setUsername(e.target.value)
             }} value={username}/>

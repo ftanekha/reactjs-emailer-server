@@ -15,7 +15,7 @@ function App() {
   const proxyUser = 'randomUser@random.com'
   const proxyPassword = 'randomPassword@random.com'
 
-  const handleFormSubmit = (e)=> {
+  const handleLoginFormSubmit = (e)=> {
     e.preventDefault()
     //login errors
     if(username !== proxyUser) setIsUsernameValid(false)
@@ -33,7 +33,7 @@ function App() {
   
   return (
     <div className='main-container'>
-      <LoginForm setPassword={setPassword} setUsername={setUsername} handleFormSubmit={handleFormSubmit}  
+      <LoginForm setPassword={setPassword} setUsername={setUsername} handleLoginFormSubmit={handleLoginFormSubmit}  
         username={ username} password={password} loginFormDisplay={loginFormDisplay} logout={logout}
       />
       <LogInErrorMessages isUsernameValid={isUsernameValid} isPasswordValid={isPasswordValid}/>

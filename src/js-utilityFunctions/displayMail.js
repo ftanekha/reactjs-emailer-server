@@ -31,13 +31,16 @@ export default function displayMail({target}){
         .then(
             posts => {
                 //select 6 random posts
-                const startPos = Math.floor(Math.random() * posts.length)
+                let startPos = Math.floor(Math.random() * posts.length)
+                // kee the start position within practical range
+                if(startPos > posts.length - 6) startPos = posts.length - 6
+                if(startPos < 6) startPos = 0
+                //
                 posts = posts.slice(startPos, startPos + 6)
                 //
                 posts.forEach(
                     (post, i) => {
                         const li = document.createElement('li')
-                        li.title = 'click to read'
                         li.key = i
                         li.textContent = post.title
                         //add delete icon
@@ -48,8 +51,7 @@ export default function displayMail({target}){
                             'click', ({target})=> {
                                 target.className = 'binned-delete-icon'
                                 document.querySelector('#emails-bin').appendChild(target.parentElement)
-                            },
-                            {once: true}
+                            }
                         )
                         li.appendChild(deleteIcon)
                         targetEmails.appendChild(li)

@@ -1,13 +1,15 @@
 @import 
-    './mixins/variables.scss',
-    './mixins/loginFormSubmitButton.scss'
+    './scss-mixins/variables',
+    './scss-mixins/loginFormSubmitButton',
+    './scss-fonts/ico-moon/paper-plane/paper-plane',
+    './scss-fonts/ico-moon/file-o/file-o'
 ;
 
 div.main-container{
     button.loginToggleButton{
         @include loginToggleButton;
     }
-    form{
+    form#login-form{
         width: 100%;
         margin-top: 30vh;
         flex-direction: column;
@@ -74,6 +76,68 @@ div.main-container{
             }
         }
         div.emails-container{
+            width: 60%;
+            margin: 0 auto 0 0;
+            form#emails-compose{
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+                // background: azure;
+                margin-top: 60px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                .form-control{
+                    width: 80%;
+                    border: none;
+                    outline: none;
+                    padding: 10px 20px;
+                    font-weight: 600;
+                    &:first-child{
+                        margin-top: 30px;
+                    }
+                }
+                input{
+                    height: 30px;
+                }
+                textarea{
+                    flex-grow: 1;
+                    resize: vertical;
+                }
+                div.submit-button-contaier{
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 30px;
+                    button{
+                        width: 40%;
+                        height: 40px;
+                        background-color: $bulma-black-ter;
+                        border: none;
+                        outline: none;
+                        color: azure;
+                        font-weight: 400;
+                        font-size: .9rem;
+                        transition: .5s;
+                        cursor: pointer;
+                        &.send-email{
+                            background-color: #04AA6D;
+                            &:hover{
+                                background-color: darken(#04AA6D, 10%);
+                            }
+                        }
+                        &:hover{
+                            transform: scale(1.1);
+                            color: white;
+                            background-color: lighten($bulma-black-ter, 5%);
+                        }
+                        span.icon-paper-plane-o, span.icon-file-o{
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
             ul.emails{
                 display: none;
                 list-style-type: none;
