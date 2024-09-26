@@ -18,7 +18,11 @@ export default function displayMail({target}){
             if(mailbox !== targetEmails) {
                 mailbox.style.display = 'none'
             }else{
-                mailbox.style.display = 'block'
+                if(target.id === 'compose'){
+                    mailbox.style.display = 'flex'
+                }else{
+                    mailbox.style.display = 'block'
+                }
             }
         }
     )
