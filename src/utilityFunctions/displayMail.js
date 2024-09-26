@@ -32,9 +32,29 @@ export default function displayMail({target}){
                 posts.forEach(
                     (post, i) => {
                         const li = document.createElement('li')
-                        li.textContent = post.title
+                        li.title = 'click to read'
                         li.key = i
+                        li.textContent = post.title
+                        //
+                        const crudOptionsContainer = document.createElement('div')
+                        crudOptionsContainer.className = 'crud-options-container'
+
+                        // const write = document.createElement('span')
+                        // write.textContent = 'write'
+                        // write.className = 'crud-option write'
+
+                        const bin = document.createElement('span')
+                        bin.title = 'delete'
+                        bin.className = 'crud-option bin'
+                        bin.addEventListener(
+                            'click', ({target})=> target.parentElement.parentElement.style.display = 'none' 
+                        )
+                        //
                         targetEmails.appendChild(li)
+                        //
+                        li.appendChild(crudOptionsContainer)
+                        // crudOptionsContainer.appendChild(write)
+                        crudOptionsContainer.appendChild(bin)
                     }
                 )
             },

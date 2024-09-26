@@ -1,3 +1,4 @@
+@charset "UTF-8";
 div.main-container button.loginToggleButton {
   cursor: pointer;
   width: 100px;
@@ -84,13 +85,30 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li {
   color: azure;
   font-weight: normal;
   font-size: 0.9rem;
-  border-bottom: solid lightgray 1px;
+  border-bottom: solid black 1px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
   transition: 0.5s;
+  cursor: pointer;
 }
 div.main-container div.mailboxes-container div.emails-container ul.emails li:hover {
   color: darkgray;
-  font-weight: 600;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container {
+  width: 50px;
+  margin-left: 40px;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container span.crud-option {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails li div.crud-options-container span.crud-option.bin::before {
+  content: "🗑";
+  color: hsl(348, 100%, 61%);
 }
 div.main-container div.mailboxes-container button.logoutButton {
   position: fixed;
