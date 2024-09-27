@@ -53,6 +53,7 @@ div.main-container{
         div.mailboxes{
             width: 80%;
             margin: auto;
+            transition: .5s;
             ul{
                 display: flex;
                 width: 100%;

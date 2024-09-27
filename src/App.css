@@ -111,6 +111,7 @@ div.main-container div.mailboxes-container {
 div.main-container div.mailboxes-container div.mailboxes {
   width: 80%;
   margin: auto;
+  transition: 0.5s;
 }
 div.main-container div.mailboxes-container div.mailboxes ul {
   display: flex;
