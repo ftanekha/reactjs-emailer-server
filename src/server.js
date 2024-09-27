@@ -14,7 +14,7 @@ app.post(
         const  {emailToAddress, emailSubject, emailBody} = JSON.parse(req.body)
 
         console.table({emailToAddress, emailSubject, emailBody})
-        res.send(req.body)
+        res.send(emailBody)
     }
 )
 

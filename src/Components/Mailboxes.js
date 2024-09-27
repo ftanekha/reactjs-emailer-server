@@ -4,6 +4,7 @@ import displayMail from '../js-utilityFunctions/displayMail.js'
 
 function Mailboxes({style, logout}){
     const [drafts, setDrafts] = useState(['Hi, World :)'])
+    const [sentMail, setSentMail] = useState([])
 
     const emailForm = document.querySelector('#emails-compose')
     const emailToAddress = document.querySelector('#email-to-address')
@@ -39,11 +40,12 @@ function Mailboxes({style, logout}){
         )
         .then(res => {
             if(res.status === 200 && res.body){
+                console.info('message sent')
                 emailForm.reset()
-                return res.json()
+                return res.text()
             }
         })
-        .then(info => console.log(info))
+        .then(emailBody => setSentMail([...sentMail, emailBody]))
         .catch(err => console.warn(err))
     }
     
@@ -74,16 +76,31 @@ function Mailboxes({style, logout}){
                     </div>
                 </form>
                 <ul id='emails-inbox' className='emails'></ul>
-                <ul id='emails-sent' className='emails'></ul>
-                <ul id='emails-drafts' className='emails'>
+                <ul id='emails-sent' className='emails'>
                     {
-                        drafts.map(
+                        sentMail.map(
                             (email, i) => {
                                 //shorten email
                                 email = Array.from(email)
                                 if(email.length > 50)  email.length = 50
                                 email = email.join('')
                                 //
+                                return(
+                                    <li key={i}>
+                                        {email} <span title='delete email' className='delete-icon' onClick={deleteEmail}></span>
+                                    </li>
+                                )
+                            }
+                        )
+                    }
+                </ul>
+                <ul id='emails-drafts' className='emails'>
+                    {
+                        drafts.map(
+                            (email, i) => {
+                                email = Array.from(email)
+                                if(email.length > 50)  email.length = 50
+                                email = email.join('')
                                 return(
                                     <li key={i}>
                                         {email} <span title='delete email' className='delete-icon' onClick={deleteEmail}></span>
