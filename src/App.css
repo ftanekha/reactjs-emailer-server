@@ -255,7 +255,7 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li {
   color: azure;
   font-weight: normal;
   font-size: 0.9rem;
-  border-bottom: solid hsl(0, 0%, 14%) 1px;
+  border-bottom: solid #007171 1px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -284,18 +284,19 @@ div.main-container div.mailboxes-container button.logoutButton {
   bottom: 5px;
   right: calc(50% - 50px);
   background-color: hsl(348, 100%, 61%);
-  opacity: 0.3;
+  opacity: 0.5;
   transition: 0.5s;
+  transform: rotateX(55deg);
 }
 div.main-container div.mailboxes-container button.logoutButton:hover {
   background-color: #ff0537;
   opacity: 1;
+  transform: rotateX(0deg);
 }
 @media (min-width: 1220px) {
   div.main-container div.mailboxes-container button.logoutButton {
     top: 10px;
     right: 10px;
-    opacity: 0.5;
   }
 }
 

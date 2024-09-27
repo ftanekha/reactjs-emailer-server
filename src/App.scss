@@ -193,7 +193,7 @@ div.main-container{
                     color: azure;
                     font-weight: normal;
                     font-size: .9rem;
-                    border-bottom: solid $bulma-black-ter 1px;
+                    border-bottom: solid darken($aquamarine, 45%) 1px;
                     margin-bottom: 20px;
                     display: flex;
                     justify-content: space-between;
@@ -222,16 +222,17 @@ div.main-container{
             bottom: 5px;
             right: calc(50% - 50px);
             background-color: $bulma-danger;
-            opacity: .3;
+            opacity: .5;
             transition: .5s;
+            transform: rotateX(55deg);
             &:hover{
                 background-color: darken($bulma-danger, 10%);
                 opacity: 1;
+                transform: rotateX(0deg);
             }
             @media (min-width: 1220px){
                 top: 10px;
                 right: 10px;
-                opacity: .5;
             }
         }
     }
