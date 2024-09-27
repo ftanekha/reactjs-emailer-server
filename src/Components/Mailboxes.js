@@ -58,19 +58,19 @@ function Mailboxes({style, logout}){
                     <li id='inbox' key='inbox' className='mailbox-link' onClick={displayMail}>Inbox</li>
                     <li id='sent' key='sent' className='mailbox-link' onClick={displayMail}>Sent</li>
                     <li id='drafts' key='drafts' className='mailbox-link' onClick={displayMail}>Drafts</li>
-                    <li id='bin' key='bin' className='mailbox-link' onClick={displayMail}>Bin</li>
+                    <li id='bin' key='bin' className='mailbox-link' title='Bin' onClick={displayMail}></li>
                 </ul>
             </div>
             <div className='emails-container'>
-                <form id='emails-compose' className='emails new-email' onSubmit={saveDraft}>
+                <form id='emails-compose' className='emails new-email' onSubmit={sendEmail}>
                     <input id='email-to-address' className='form-control' type='email' placeholder='To:'/>
                     <input id='email-subject' className='form-control' type='text' placeholder='Subject:'/>
-                    <textarea id='email-body' className='form-control'></textarea>
+                    <textarea id='email-body' className='form-control text-area'></textarea>
                     <div className='submit-button-contaier'>
-                        <button type='submit' className='send-email' onClick={sendEmail}>
+                        <button type='submit' className='send-email'>
                             Send&nbsp;&nbsp;<span className='icon-paper-plane-o'></span>
                         </button>
-                        <button type='button' className='save-draft'>Save draft&nbsp;&nbsp;<span className='icon-file-o'></span></button>
+                        <button type='button' className='save-draft' onClick={saveDraft}>Save draft&nbsp;&nbsp;<span className='icon-file-o'></span></button>
                     </div>
                 </form>
                 <ul id='emails-inbox' className='emails'></ul>
