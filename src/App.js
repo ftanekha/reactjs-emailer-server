@@ -6,14 +6,14 @@ import './App.css'
 
 function App() {
   //authentication details
-  const [username, setUsername] = useState('alan@muza.com')
-  const [password, setPassword] = useState('unknown')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [loginFormDisplay, setloginFormDisplay] = useState(true)
   const [isUsernameValid, setIsUsernameValid] = useState(true)
   const [isPasswordValid, setIsPasswordValid] = useState(true)
 
-  const proxyUser = 'randomUser@random.com'
-  const proxyPassword = 'randomPassword@random.com'
+  const proxyUser = 'random@user.com'
+  const proxyPassword = 'randomd@password.com'
 
   const handleLoginFormSubmit = (e)=> {
     e.preventDefault()
