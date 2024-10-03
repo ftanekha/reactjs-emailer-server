@@ -84,7 +84,7 @@ div.main-container{
                     &#bin{
                         font-size: 1.5rem;
                         font-weight: 600;
-                        &::before{
+                        &::after{
                             content: '\01F5D1';
                             color: lighten($bulma-black-ter, 55%);
                         }
@@ -206,14 +206,15 @@ div.main-container{
                     span.delete-icon, span.binned-delete-icon{
                         font-size: 1.5rem;
                         cursor: pointer;
-                        &::before{
+                        &::after{
                             content: '\01F5D1';
                             color: $bulma-danger;
                         }
                     }
+                    
                 }
-                &#emails-inbox{
-                    li{
+                &#emails-inbox, &#emails-bin{
+                    li.inbox-email{
                         table{
                             tr{
                                 td{
@@ -240,6 +241,13 @@ div.main-container{
                                 }
                             }
                         }
+                    }
+                    //deleted draft emails
+                    span.delete-draft{
+                        background-color: black;
+                        padding: 0 5px;
+                        border: solid $aquamarine 0; 
+                        border-radius: 20%;
                     }
                 }
             }

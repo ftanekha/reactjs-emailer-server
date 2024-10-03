@@ -1,6 +1,6 @@
 function createEmail(emailProps){
     const email = document.createElement('table')
-    email.className = 'inboxEmail'
+    email.className = 'inbox-email-container'
 
     for(const emailProp in emailProps){
         const row = document.createElement('tr')

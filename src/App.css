@@ -144,7 +144,7 @@ div.main-container div.mailboxes-container div.mailboxes ul li#bin {
   font-size: 1.5rem;
   font-weight: 600;
 }
-div.main-container div.mailboxes-container div.mailboxes ul li#bin::before {
+div.main-container div.mailboxes-container div.mailboxes ul li#bin::after {
   content: "🗑";
   color: #b0b0b0;
 }
@@ -270,31 +270,37 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li spa
   font-size: 1.5rem;
   cursor: pointer;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails li span.delete-icon::before, div.main-container div.mailboxes-container div.emails-container ul.emails li span.binned-delete-icon::before {
+div.main-container div.mailboxes-container div.emails-container ul.emails li span.delete-icon::after, div.main-container div.mailboxes-container div.emails-container ul.emails li span.binned-delete-icon::after {
   content: "🗑";
   color: hsl(348, 100%, 61%);
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li table tr td {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li.inbox-email table tr td, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin li.inbox-email table tr td {
   padding-left: 10px;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li table tr td.lowercase {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li.inbox-email table tr td.lowercase, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin li.inbox-email table tr td.lowercase {
   text-transform: lowercase;
   font-size: 1rem;
   font-weight: 600;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li table tr td.subject {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li.inbox-email table tr td.subject, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin li.inbox-email table tr td.subject {
   text-transform: lowercase;
   color: darkgrey;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li table tr td:not(.subject) {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li.inbox-email table tr td:not(.subject), div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin li.inbox-email table tr td:not(.subject) {
   color: azure;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li table tr td:first-child {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox li.inbox-email table tr td:first-child, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin li.inbox-email table tr td:first-child {
   padding: 10px 30px 0 5px;
   background-color: #57ffff;
   color: hsl(0, 0%, 14%);
   text-transform: capitalize;
   font-weight: 600;
+}
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox span.delete-draft, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin span.delete-draft {
+  background-color: black;
+  padding: 0 5px;
+  border: solid #57ffff 0;
+  border-radius: 20%;
 }
 @media (min-width: 1220px) {
   div.main-container div.mailboxes-container div.emails-container {
