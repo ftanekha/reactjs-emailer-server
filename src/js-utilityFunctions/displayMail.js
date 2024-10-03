@@ -45,11 +45,11 @@ export default function displayMail({target}){
                 comments = comments.slice(startPos, startPos + 6)
                 //
                 comments.forEach(
-                    ({name, email, body}, i) => {
+                    ({name: subject, email: from, body}, i) => {
                         const li = document.createElement('li')
                         li.key = i
-                        // li.textContent = comment.title
-                        const newEmail = createEmail({name, email, body})
+                        //generate email body
+                        const newEmail = createEmail({from, subject,body})
                         //add delete icon
                         const deleteIcon = document.createElement('span')
                         deleteIcon.title = 'delete email'

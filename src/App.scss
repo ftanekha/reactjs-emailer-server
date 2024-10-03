@@ -218,6 +218,18 @@ div.main-container{
                             tr{
                                 td{
                                     padding-left: 10px;
+                                    &.lowercase{
+                                        text-transform: lowercase;
+                                        font-size: 1rem;
+                                        font-weight: 600;
+                                    }
+                                    &.subject{
+                                        text-transform: lowercase;
+                                        color: darkgrey;
+                                    }
+                                    &:not(.subject){
+                                        color: azure;
+                                    }
                                 }
                                 td:first-child{
                                     padding: 10px 30px 0 5px;
