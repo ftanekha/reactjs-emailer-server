@@ -104,7 +104,7 @@ div.main-container{
             }
         }
         div.emails-container{
-            width: 60%;
+            width: 80%;
             margin: 0 auto;
             form#emails-compose{
                 box-sizing: border-box;
@@ -252,7 +252,8 @@ div.main-container{
                 }
             }
             @media (min-width: 1220px){
-                margin: 0 auto 0 0;
+                width: 60%;
+                margin: 0 0 0 0;
             }
         }
         button.logoutButton{
