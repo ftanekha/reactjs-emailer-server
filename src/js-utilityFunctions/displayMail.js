@@ -1,3 +1,5 @@
+import createEmail from './createEmail.js'
+
 export default function displayMail({target}){
     const aquamarine = '#57ffff'
 
@@ -30,23 +32,24 @@ export default function displayMail({target}){
     if(target.id === 'inbox'){
         targetEmails.innerHTML = ''
 
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('https://jsonplaceholder.typicode.com/comments')
         .then(res => res.json())
         .then(
-            posts => {
-                //select 6 random posts
-                let startPos = Math.floor(Math.random() * posts.length)
+            comments => {
+                //generate 6 random emails
+                let startPos = Math.floor(Math.random() * comments.length)
                 // kee the start position within practical range
-                if(startPos > posts.length - 6) startPos = posts.length - 6
+                if(startPos > comments.length - 6) startPos = comments.length - 6
                 if(startPos < 6) startPos = 0
                 //
-                posts = posts.slice(startPos, startPos + 6)
+                comments = comments.slice(startPos, startPos + 6)
                 //
-                posts.forEach(
-                    (post, i) => {
+                comments.forEach(
+                    ({name, email, body}, i) => {
                         const li = document.createElement('li')
                         li.key = i
-                        li.textContent = post.title
+                        // li.textContent = comment.title
+                        const newEmail = createEmail({name, email, body})
                         //add delete icon
                         const deleteIcon = document.createElement('span')
                         deleteIcon.title = 'delete email'
@@ -57,6 +60,7 @@ export default function displayMail({target}){
                                 document.querySelector('#emails-bin').appendChild(target.parentElement)
                             }
                         )
+                        li.appendChild(newEmail)
                         li.appendChild(deleteIcon)
                         targetEmails.appendChild(li)
                     }

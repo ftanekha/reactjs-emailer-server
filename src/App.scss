@@ -212,6 +212,24 @@ div.main-container{
                         }
                     }
                 }
+                &#emails-inbox{
+                    li{
+                        table{
+                            tr{
+                                td{
+                                    padding-left: 10px;
+                                }
+                                td:first-child{
+                                    padding: 10px 30px 0 5px;
+                                    background-color: $aquamarine;
+                                    color: $bulma-black-ter;
+                                    text-transform: capitalize;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
             }
             @media (min-width: 1220px){
                 margin: 0 auto 0 0;
