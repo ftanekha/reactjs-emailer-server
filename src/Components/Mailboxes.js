@@ -18,8 +18,10 @@ function Mailboxes({style, logout}){
 
     const deleteEmail = ({target})=> {
         target.className = 'binned-delete-icon'
-        if(target.parentElement.parentElement.id === 'emails-drafts') target.classList.add('delete-draft')
+        if(target.parentElement.parentElement.id === 'emails-drafts'){
+            target.classList.add('delete-draft')
             target.title = 'delete draft'
+        }
         document.querySelector('#emails-bin').appendChild(target.parentElement)
     }
 
