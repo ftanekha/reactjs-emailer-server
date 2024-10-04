@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import LogoutButton from './LogoutButton.js'
 import displayMail from '../js-utilityFunctions/displayMail.js'
+import {isValidStringInput, isUserEmailAddressValid} from '../js-utilityFunctions/formValidation.js'
 
 function Mailboxes({style, logout}){
     const [drafts, setDrafts] = useState(['Hi, World :)'])
@@ -26,6 +27,16 @@ function Mailboxes({style, logout}){
         document.querySelector('#emails-bin').appendChild(target.parentElement)
     }
 
+    const isEmailDataValid = ({emailToAddress, emailSubject, emailBody})=>{
+        if(
+            isUserEmailAddressValid(emailToAddress) 
+            && isValidStringInput(emailSubject) 
+            && isValidStringInput(emailBody)
+        ){
+            return true
+        }
+        return false
+    }
     const sendEmail = (ev)=>{
         ev.preventDefault()
         //in the future, all of the form data would be sent to db
@@ -35,23 +46,28 @@ function Mailboxes({style, logout}){
             emailSubject: emailSubject.value,
             emailBody: emailBody.value
         }
-        fetch(
-            'http://localhost:8080',
-            {
-                method: 'POST',
-                'Content-Type': 'application/json',
-                body: JSON.stringify(newEmail)
-            }
-        )
-        .then(res => {
-            if(res.status === 200 && res.body){
-                console.info('message sent')
-                emailForm.reset()
-                return res.text()
-            }
-        })
-        .then(emailBody => setSentMail([...sentMail, emailBody]))
-        .catch(err => console.warn(err))
+        
+        if(isEmailDataValid(newEmail)){
+            fetch(
+                'http://localhost:8080',
+                {
+                    method: 'POST',
+                    'Content-Type': 'application/json',
+                    body: JSON.stringify(newEmail)
+                }
+            )
+            .then(res => {
+                if(res.status === 200 && res.body){
+                    console.info('message sent')
+                    emailForm.reset()
+                    return res.text()
+                }
+            })
+            .then(emailBody => setSentMail([...sentMail, emailBody]))
+            .catch(err => console.warn(err))
+        }else{
+            alert('Incorrect email format.')
+        }
     }
     
     return(
