@@ -59,7 +59,7 @@ export default function displayMail({target}){
                             'click', ({target})=> {
                                 target.className = 'binned-delete-icon'
                                 document.querySelector('#emails-bin').appendChild(target.parentElement)
-                            }
+                            }, {once: true}
                         )
                         li.appendChild(newEmail)
                         li.appendChild(deleteIcon)
@@ -71,15 +71,19 @@ export default function displayMail({target}){
         )
         targetEmails.style.display = 'block'
     }
-
     //binned emails
     const binnedDeleteIcons = document.querySelectorAll('.binned-delete-icon')
     binnedDeleteIcons.forEach(
         binnedDeleteIcon => binnedDeleteIcon.addEventListener(
             //delete permanently from DOM
-            'click', ({target})=> {
+            'click', (event)=> {
                 if(window.confirm('Are you sure you want to delete this email permanently?')){
-                    target.parentElement.remove()
+                    event.stopPropagation()
+                    if(event.currentTarget.classList.contains('draft')){
+                        event.currentTarget.parentElement.remove()
+                    }else{
+                        event.target.parentElement.remove()
+                    }
                 }
             }
         )

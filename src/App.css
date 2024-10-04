@@ -261,7 +261,6 @@ div.main-container div.mailboxes-container div.emails-container ul.emails li {
   justify-content: space-between;
   gap: 40px;
   transition: 0.5s;
-  cursor: pointer;
 }
 div.main-container div.mailboxes-container div.emails-container ul.emails li:hover {
   color: darkgray;
@@ -296,7 +295,7 @@ div.main-container div.mailboxes-container div.emails-container ul.emails#emails
   text-transform: capitalize;
   font-weight: 600;
 }
-div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox span.delete-draft, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin span.delete-draft {
+div.main-container div.mailboxes-container div.emails-container ul.emails#emails-inbox span.draft, div.main-container div.mailboxes-container div.emails-container ul.emails#emails-bin span.draft {
   background-color: black;
   padding: 0 5px;
   border: solid #57ffff 0;
@@ -316,6 +315,7 @@ div.main-container div.mailboxes-container button.logoutButton {
   opacity: 0.5;
   transition: 0.5s;
   transform: rotateX(55deg);
+  border-radius: 25%;
 }
 div.main-container div.mailboxes-container button.logoutButton:hover {
   background-color: #ff0537;

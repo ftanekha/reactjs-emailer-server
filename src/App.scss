@@ -199,7 +199,6 @@ div.main-container{
                     justify-content: space-between;
                     gap: 40px;
                     transition: .5s;
-                    cursor: pointer;
                     &:hover{
                         color: darkgray;
                     }
@@ -243,7 +242,7 @@ div.main-container{
                         }
                     }
                     //deleted draft emails
-                    span.delete-draft{
+                    span.draft{
                         background-color: black;
                         padding: 0 5px;
                         border: solid $aquamarine 0; 
@@ -264,6 +263,7 @@ div.main-container{
             opacity: .5;
             transition: .5s;
             transform: rotateX(55deg);
+            border-radius: 25%;
             &:hover{
                 background-color: darken($bulma-danger, 10%);
                 opacity: 1;

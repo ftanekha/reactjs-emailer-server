@@ -17,10 +17,11 @@ function Mailboxes({style, logout}){
     }
 
     const deleteEmail = ({target})=> {
-        target.className = 'binned-delete-icon'
-        if(target.parentElement.parentElement.id === 'emails-drafts'){
-            target.classList.add('delete-draft')
-            target.title = 'delete draft'
+        target.title = 'delete draft'
+        if(target.classList.contains('draft')){
+            target.className = 'binned-delete-icon draft'
+        }else{
+            target.className = 'binned-delete-icon'
         }
         document.querySelector('#emails-bin').appendChild(target.parentElement)
     }
@@ -107,7 +108,7 @@ function Mailboxes({style, logout}){
                                 email = email.join('')
                                 return(
                                     <li key={i}>
-                                        {email} <span title='delete email' className='delete-icon' onClick={deleteEmail}></span>
+                                        {email} <span title='delete email' className='delete-icon draft' onClick={deleteEmail}></span>
                                     </li>
                                 )
                             }

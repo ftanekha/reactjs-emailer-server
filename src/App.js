@@ -13,7 +13,7 @@ function App() {
   const [isPasswordValid, setIsPasswordValid] = useState(true)
 
   const proxyUser = 'random@user.com'
-  const proxyPassword = 'randomd@password.com'
+  const proxyPassword = 'random@password.com'
 
   const handleLoginFormSubmit = (e)=> {
     e.preventDefault()
