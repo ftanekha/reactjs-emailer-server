@@ -26,6 +26,7 @@ function App() {
 
     if(username === proxyUser && password === proxyPassword){
       setloginFormDisplay(!loginFormDisplay)
+      document.title = username
     }
   }
   //logout
