@@ -27,16 +27,15 @@ function Mailboxes({style, logout}){
         document.querySelector('#emails-bin').appendChild(target.parentElement)
     }
 
-    const isEmailDataValid = ({emailToAddress, emailSubject, emailBody})=>{
-        if(
-            isUserEmailAddressValid(emailToAddress) 
-            && isValidStringInput(emailSubject) 
-            && isValidStringInput(emailBody)
-        ){
-            return true
-        }
-        return false
+    const validateEmail = ({emailToAddress, emailSubject, emailBody})=>{
+        const errors = []
+        if(!isUserEmailAddressValid(emailToAddress)) errors.push('Invalid email address')
+        if(!isValidStringInput(emailSubject)) errors.push('Invalid email subject')
+        if(isValidStringInput(emailBody)) errors.push('Invalid email format')
+        
+        return errors
     }
+
     const sendEmail = (ev)=>{
         ev.preventDefault()
         //in the future, all of the form data would be sent to db
@@ -47,7 +46,9 @@ function Mailboxes({style, logout}){
             emailBody: emailBody.value
         }
         
-        if(isEmailDataValid(newEmail)){
+        const isEmailDataValid = validateEmail(newEmail)
+
+        if(!isEmailDataValid.length){
             fetch(
                 'http://localhost:8080',
                 {
@@ -66,7 +67,7 @@ function Mailboxes({style, logout}){
             .then(emailBody => setSentMail([...sentMail, emailBody]))
             .catch(err => console.warn(err))
         }else{
-            alert('Incorrect email format.')
+            console.table(isEmailDataValid)
         }
     }
     
