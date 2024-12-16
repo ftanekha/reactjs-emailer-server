@@ -85,7 +85,7 @@ export default function displayMail({target}){
                         event.target.parentElement.remove()
                     }
                 }
-            }
+            }, {once: true}
         )
     )
 }
