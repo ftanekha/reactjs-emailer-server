@@ -31,7 +31,7 @@ function Mailboxes({style, logout}){
         const errors = []
         if(!isUserEmailAddressValid(emailToAddress)) errors.push('Invalid email address')
         if(!isValidStringInput(emailSubject)) errors.push('Invalid email subject')
-        if(isValidStringInput(emailBody)) errors.push('Invalid email format')
+        if(!isValidStringInput(emailBody)) errors.push('Invalid email format')
         
         return errors
     }
