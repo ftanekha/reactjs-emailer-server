@@ -11,10 +11,10 @@ app.use(express.text())
 app.post(
     pathName,
     (req, res)=>{
-        const  {emailToAddress, emailSubject, emailBody} = JSON.parse(req.body)
-
-        console.table({emailToAddress, emailSubject, emailBody})
-        res.send(emailBody)
+        const body = JSON.parse(req.body)
+        console.info('received new email:')
+        console.table(body)
+        res.json(body)
     }
 )
 
